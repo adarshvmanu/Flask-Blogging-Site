@@ -17,4 +17,17 @@ class blogpost(db.Model):
     blog_content = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
+    def __repr__(self): 
+        return 'Blog post ' + str(self.id)
 
+# Routes
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
