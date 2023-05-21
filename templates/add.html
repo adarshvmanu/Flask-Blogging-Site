@@ -2,6 +2,22 @@
 {%block title%}Add Blog{%endblock%}
 {%block content%}
     <section class="home">
-        <div class="text">See what other people have to say</div>
+        <div class="text">Write your own blog</div>
+        <div id="task-app">
+            <div id="task-content">
+                <p id="subtitle">Speak Your Mind</p>
+                <div id="form-container">
+                    <form id="task-form" action="{{url_for('add_blog')}}" method="post">
+                        <div>
+                            <input type="text" id="blog-name" name="blog_name" placeholder="Enter blog name" required>
+                            <input type="text" id="blog-author" name="blog_author" placeholder="Enter your name" required>
+                            <textarea id="blog-content" rows="8" name="blog_content"
+                                placeholder="Write your blog content" required></textarea>
+                            <button type="submit" id="add-blog-button">Submit Blog</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 {%endblock%}

@@ -17,17 +17,36 @@ class blogpost(db.Model):
     blog_content = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
+with app.app_context():
+    db.create_all()
+
     def __repr__(self): 
-        return 'Blog post ' + str(self.id)
+        return 'Blog post ' + str(self.id)    
+
 
 # Routes
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/<int:id>')
+def blog(id):
+    blog = blogpost.query.filter_by(id=id).one()
+    return render_template('blog.html', blog=blog)
+
 @app.route('/add')
 def add():
     return render_template('add.html')
+
+@app.route('/add_blog', methods=['POST'])
+def add_blog():
+    title = request.form['blog_title']
+    subtitle = request.form['blog_subtitle']
+    content = request.form['blog_content']
+    new_blog = blogpost(blog_title=title, blog_subtitle=subtitle, blog_content=content, date_created=datetime.now())
+    db.session.add(new_blog)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

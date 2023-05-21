@@ -12,6 +12,7 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
+    --accent-color: #bbdafb;
 
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -281,7 +282,6 @@ body.dark .switch::before{
 .home{
     position: absolute;
     top: 0;
-    top: 0;
     left: 250px;
     height: 100vh;
     width: calc(100% - 250px);
@@ -302,4 +302,29 @@ body.dark .switch::before{
 }
 body.dark .home .text{
     color: var(--text-color);
+}
+
+.blog-card {
+    color: #50475A;
+    font-size: medium;
+    font-family: 'Google Sans', 'Roboto', Ubuntu, sans-serif;
+    width: 90%;
+    min-width: 200px;
+    max-width: 1500px;
+    min-height: 20vh;
+    background-color: var(--accent-color);
+    border-radius: 7px;
+    overflow: hidden;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: center; 
+}
+
+.blog-card-content {
+    box-sizing: border-box;
+    padding: 1.5rem;
+    width: 100%; 
+    max-width: 850px;
 }
