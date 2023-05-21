@@ -4,11 +4,15 @@
     <section class="home">
         <div class="text">See what others have to say</div>
         <br>
+        {% for blog in blogs %}
+        <a href="/{{ blog.id }}" style="text-decoration: none;">
         <div class="blog-card">
             <div class="blog-card-content">
-                <h2 id="title">Welcome to the Indian Sub-Continent</h2>
-                <h4 class="author">by Andrew Tate</h4>
+                <h2 class="title">{{ blog.blog_title }}</h2>
+                <h4 class="subtitle">{{ blog.blog_subtitle }}</h4>
             </div>
         </div>
+        <br>
+        {% endfor %}
     </section>
 {%endblock%}

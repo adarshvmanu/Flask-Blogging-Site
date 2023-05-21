@@ -2,7 +2,6 @@
 {%block title%}Add Blog{%endblock%}
 {%block content%}
     <section class="home">
-        <div class="text">{{ blog_title.id }}</div>
-        <div class="subtitle">{{ blog_author.id }}</div>
+        <div class="text"><h1>{{ blog.blog_title }}</h1>{{ blog.blog_subtitle }}</div>  
     </section>
 {%endblock%}

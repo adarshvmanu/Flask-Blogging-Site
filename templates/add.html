@@ -7,10 +7,10 @@
             <div id="task-content">
                 <p id="subtitle">Speak Your Mind</p>
                 <div id="form-container">
-                    <form id="task-form" action="{{url_for('add_blog')}}" method="post">
+                    <form id="task-form" action="/add_blog" method="POST">
                         <div>
-                            <input type="text" id="blog-name" name="blog_name" placeholder="Enter blog name" required>
-                            <input type="text" id="blog-author" name="blog_author" placeholder="Enter your name" required>
+                            <input type="text" id="blog-name" name="blog_title" placeholder="Enter blog name" required>
+                            <input type="text" id="blog-author" name="blog_subtitle" placeholder="Enter your name" required>
                             <textarea id="blog-content" rows="8" name="blog_content"
                                 placeholder="Write your blog content" required></textarea>
                             <button type="submit" id="add-blog-button">Submit Blog</button>

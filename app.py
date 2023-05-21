@@ -27,7 +27,8 @@ with app.app_context():
 # Routes
 @app.route('/')
 def index():
-    return render_template('index.html')
+    all_blogs = blogpost.query.order_by(blogpost.date_created.desc()).all()
+    return render_template('index.html', blogs=all_blogs)
 
 @app.route('/<int:id>')
 def blog(id):
@@ -40,12 +41,13 @@ def add():
 
 @app.route('/add_blog', methods=['POST'])
 def add_blog():
-    title = request.form['blog_title']
-    subtitle = request.form['blog_subtitle']
-    content = request.form['blog_content']
-    new_blog = blogpost(blog_title=title, blog_subtitle=subtitle, blog_content=content, date_created=datetime.now())
-    db.session.add(new_blog)
-    db.session.commit()
+    if request.method == 'POST':
+        title = request.form['blog_title']
+        subtitle = request.form['blog_subtitle']
+        content = request.form['blog_content']
+        new_blog = blogpost(blog_title=title, blog_subtitle=subtitle, blog_content=content, date_created=datetime.now())
+        db.session.add(new_blog)
+        db.session.commit()
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
