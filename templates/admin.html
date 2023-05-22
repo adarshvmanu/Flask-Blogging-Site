@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-{%block title%}Speak Your Mind{%endblock%}
+{%block title%}Admin Mode{%endblock%}
 {%block content%}
     <section class="home">
         <div class="text">Admin Mode</div>
@@ -10,8 +10,12 @@
             <div class="blog-card-content">
                 <h2 class="title">{{ blog.blog_title }}</h2>
                 <h4 class="subtitle" style="margin-top: 6px;"><span style="font-weight:300;">{{ blog.blog_subtitle }}</h4>
+                <div class="delete-button">
+                    <a href="/delete/{{ blog.id }}"><i class='bx bx-trash icon'></i></a>
+                </div>
             </div>
         </div>
+        </a>
         <br>
         {% endfor %}
     </section>
