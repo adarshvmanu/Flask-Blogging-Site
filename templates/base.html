@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>{%block title%}Speak Your Mind{%endblock%}</title>
 </head>
-<body>
+<body onload="onload()">
         <nav class="sidebar close">
             <header>
                 <div class="image-text">
@@ -77,6 +77,6 @@
         </nav>
     {%block content%}
     {%endblock%}
-    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+    <script src="{{url_for('static',filename='js/common.js')}}"></script>
 </body>
 </html>

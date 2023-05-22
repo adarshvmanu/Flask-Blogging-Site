@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
-{%block title%}Add Blog{%endblock%}
+{%block title%}{{ blog.blog_title }}{%endblock%}
 {%block content%}
     <section class="home">
-        <div class="text"><h1>{{ blog.blog_title }}</h1>{{ blog.blog_subtitle }}</div>  
+        <div class="text"><h1>{{ blog.blog_title }}</h1>{{ blog.blog_subtitle }}<br><span style="font-size: large;">Created On : {{ blog.date_created.strftime('%B %d, %Y') }}</span><br><span style="font-size: large; font-weight: 200;">{{blog.blog_content}}</span></div>  
     </section>
 {%endblock%}

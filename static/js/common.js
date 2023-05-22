@@ -5,7 +5,6 @@ const body = document.querySelector('body'),
       modeSwitch = body.querySelector(".toggle-switch"),
       modeText = body.querySelector(".mode-text");
 
-
 toggle.addEventListener("click" , () =>{
     sidebar.classList.toggle("close");
 })
@@ -15,12 +14,16 @@ searchBtn.addEventListener("click" , () =>{
 })
 
 modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
+    const wasDarkMode = localStorage.getItem('dark')==='true';
+    localStorage.setItem('dark', !wasDarkMode);
+    body.classList.toggle("dark", !wasDarkMode);
     if(body.classList.contains("dark")){
-        modeText.innerText = "Dark mode";
+        modeText.innerText = "Dark mode"; 
     }else{
-        modeText.innerText = "Light mode";
-        
+        modeText.innerText = "Light mode"; 
     }
 });
+
+function onload(){
+    body.classList.toggle("dark", localStorage.getItem('dark')==='true');
+}

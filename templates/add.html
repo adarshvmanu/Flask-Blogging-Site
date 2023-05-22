@@ -2,11 +2,7 @@
 {%block title%}Add Blog{%endblock%}
 {%block content%}
     <section class="home">
-        <div class="text">Write your own blog</div>
-        <div id="task-app">
-            <div id="task-content">
-                <p id="subtitle">Speak Your Mind</p>
-                <div id="form-container">
+        <div class="text">Write your own blog<p id="subtitle"><span style="font-size: large;">Speak Your Mind</span></p>
                     <form id="task-form" action="/add_blog" method="POST">
                         <div>
                             <input type="text" id="blog-name" name="blog_title" placeholder="Enter blog name" required>
@@ -16,8 +12,6 @@
                             <button type="submit" id="add-blog-button">Submit Blog</button>
                         </div>
                     </form>
-                </div>
-            </div>
         </div>
     </section>
 {%endblock%}
