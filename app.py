@@ -30,6 +30,15 @@ def index():
     all_blogs = blogpost.query.order_by(blogpost.date_created.desc()).all()
     return render_template('index.html', blogs=all_blogs)
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        search = request.form['search']
+        search = "%{}%".format(search)
+        results = blogpost.query.filter(blogpost.blog_title.like(search)).all()
+        return render_template('search.html', results=results)
+    return redirect(url_for('index'))
+
 @app.route('/<int:id>')
 def blog(id):
     blog = blogpost.query.filter_by(id=id).one()
@@ -54,6 +63,17 @@ def add_blog():
 def admin():
     all_blogs = blogpost.query.order_by(blogpost.date_created.desc()).all()
     return render_template('admin.html', blogs=all_blogs)
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    blog = blogpost.query.filter_by(id=id).one()
+    db.session.delete(blog)
+    db.session.commit()
+    return redirect(url_for('admin'))
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

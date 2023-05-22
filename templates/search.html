@@ -2,9 +2,9 @@
 {%block title%}Speak Your Mind{%endblock%}
 {%block content%}
 <section class="home">
-    <div class="text">See what others have Posted</div>
+    <div class="text">Showing Similar Blogs</div>
     <br>
-    {% for blog in blogs %}
+    {% for blog in results %}
     <a href="/{{ blog.id }}" style="text-decoration: none;">
         <div class="blog-card">
             <div class="blog-card-content">

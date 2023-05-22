@@ -3,9 +3,9 @@
 {%block content%}
 <section class="home">
     <div class="text">
-        <h1>{{ blog.blog_title }}</h1>{{ blog.blog_subtitle }}<br><span style="font-size: large;">Created On : {{
+        <h1>{{ blog.blog_title }}</h1><span style="font-style: italic; font-size: large;">{{ blog.blog_subtitle }}</span><br><span style="font-size: large;">Created On : {{
             blog.date_created.strftime('%B %d, %Y') }}</span><br><span
-            style="font-size: large; font-weight: 200;">{{blog.blog_content}}</span>
+            style="font-size: large; font-weight: 200;"><br>{{blog.blog_content}}</span>
     </div>
 </section>
 {%endblock%}
