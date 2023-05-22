@@ -5,11 +5,13 @@
         <div class="text">Write your own blog<p id="subtitle"><span style="font-size: large;">Speak Your Mind</span></p>
                     <form id="task-form" action="/add_blog" method="POST">
                         <div>
-                            <input type="text" id="blog-name" name="blog_title" placeholder="Enter blog name" required>
-                            <input type="text" id="blog-author" name="blog_subtitle" placeholder="Enter your name" required>
-                            <textarea id="blog-content" rows="8" name="blog_content"
-                                placeholder="Write your blog content" required></textarea>
+                            <input type="text" id="blog-title" name="blog_title" placeholder="Enter blog title" required>
+                            <input type="text" id="blog-subtitle" name="blog_subtitle" placeholder="Enter blog subtitle" required>
+                            <textarea id="blog-content" rows="20" name="blog_content"
+                                placeholder="Write your blog here!" required></textarea>
+                            <div class="button-container">
                             <button type="submit" id="add-blog-button">Submit Blog</button>
+                            </div>
                         </div>
                     </form>
         </div>

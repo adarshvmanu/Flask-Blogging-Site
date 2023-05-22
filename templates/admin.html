@@ -2,11 +2,11 @@
 {%block title%}Speak Your Mind{%endblock%}
 {%block content%}
     <section class="home">
-        <div class="text">See what others have Posted</div>
+        <div class="text">Admin Mode</div>
         <br>
         {% for blog in blogs %}
         <a href="/{{ blog.id }}" style="text-decoration: none;">
-        <div class="blog-card">
+        <div class="blog-card" style="background-color: rgb(193, 255, 100)">
             <div class="blog-card-content">
                 <h2 class="title">{{ blog.blog_title }}</h2>
                 <h4 class="subtitle" style="margin-top: 6px;"><span style="font-weight:300;">{{ blog.blog_subtitle }}</h4>

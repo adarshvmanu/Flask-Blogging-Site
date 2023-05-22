@@ -50,5 +50,10 @@ def add_blog():
         db.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/admin')
+def admin():
+    all_blogs = blogpost.query.order_by(blogpost.date_created.desc()).all()
+    return render_template('admin.html', blogs=all_blogs)
+
 if __name__ == '__main__':
     app.run(debug=True)
